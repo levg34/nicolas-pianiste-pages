@@ -1,30 +1,56 @@
-import { Button, Card, Container } from 'solid-bootstrap'
+import { Button, Card, Col, Container, Row } from 'solid-bootstrap'
 import { For, createResource } from 'solid-js'
 
-const pagesFetcher = async () => await fetch('/api/pages').then((res) => res.json())
+const pagesFetcher = async () => await fetch('/api/pages?full=true').then((res) => res.json())
+
+export interface PageResponse {
+    name: string
+    url: string
+    pageData: PageData
+    _id: string
+    bgColor?: string
+}
+
+export interface PageData {
+    headerImageUrl: string
+    data: Datum[]
+}
+
+export interface Datum {
+    markdown?: string
+    legacy_text?: string[]
+    image?: string
+    video?: Video
+}
+
+export interface Video {
+    url: string
+    thumbUrl: string
+}
 
 export default function PageList() {
-    const [pages] = createResource<{ name: string; url: string; _id: string }[]>(pagesFetcher)
+    const [pages] = createResource<PageResponse[]>(pagesFetcher)
 
     return (
         <Container>
-            <For each={pages()}>
-                {(page) => (
-                    <a href={'/' + page.url}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="holder.js/100px180" />
-                            <Card.Body>
-                                <Card.Title>{page.name}</Card.Title>
-                                <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's content.
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card>
-                    </a>
-                )}
-            </For>
+            <Row>
+                <For each={pages()}>
+                    {(page) => (
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src={page.pageData.headerImageUrl} />
+                                <Card.Body>
+                                    <Card.Title>{page.name}</Card.Title>
+                                    <Card.Text>{page.pageData.data.find((d) => d.markdown)?.markdown}</Card.Text>
+                                    <a href={'/' + page.url}>
+                                        <Button variant="primary">Visiter</Button>
+                                    </a>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )}
+                </For>
+            </Row>
         </Container>
     )
 }
