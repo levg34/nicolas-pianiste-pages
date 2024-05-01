@@ -1,14 +1,15 @@
-import { Route, Router, Routes } from '@solidjs/router'
+import { Route, Router } from '@solidjs/router'
 import { Component } from 'solid-js'
 import Page from './Page'
 
+const NotFound = () => <div>Nothing to see here</div>
 const App: Component = () => {
-    return <Router>
-        <Routes>
-            <Route path="/pages/:pageId" element={<Page />}/>
-            <Route path="*" element={<div>Nothing to see here</div>}/>
-        </Routes>
-    </Router>
+    return (
+        <Router>
+            <Route path="/:pageId" component={Page} />
+            <Route path="*" component={NotFound} />
+        </Router>
+    )
 }
 
 export default App
