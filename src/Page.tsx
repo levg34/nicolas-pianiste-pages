@@ -45,6 +45,8 @@ const Page: Component<Props> = (props: Props) => {
         return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? '#000000' : '#FFFFFF'
     }
 
+    const HOME_URL = import.meta.env.VITE_HOME_URL ?? '/'
+
     return (
         <Stack style="background-color: black">
             <Carousel controls={false} indicators={false}>
@@ -83,7 +85,7 @@ const Page: Component<Props> = (props: Props) => {
                 </Show>
                 <Show when={pageData.error}>Error: {pageData.error}</Show>
                 <Breadcrumb>
-                    <Breadcrumb.Item href="/">Accueil</Breadcrumb.Item>
+                    <Breadcrumb.Item href={HOME_URL}>Accueil</Breadcrumb.Item>
                     <Breadcrumb.Item active>{pageData()?.pageName}</Breadcrumb.Item>
                 </Breadcrumb>
             </Container>
