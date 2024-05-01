@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "https://nicolasdross.fr/:match*"
+    },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}

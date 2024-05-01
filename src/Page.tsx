@@ -25,7 +25,7 @@ export interface Video {
 }
 
 const getPageData = async (pageId: string): Promise<PageData> => {
-    const pageData = await fetch('/pages/' + pageId + '/data').then((data) => data.json())
+    const pageData = await fetch('/api/pages/' + pageId + '/data').then((data) => data.json())
     return pageData
 }
 
