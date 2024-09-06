@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:match*",
-      "destination": "https://api.nicolasdross.fr/:match*"
+      "destination": "https://api-val.nicolasdross.fr/:match*"
     },
     { "source": "/(.*)", "destination": "/" }
   ]
