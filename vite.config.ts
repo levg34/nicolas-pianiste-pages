@@ -7,7 +7,7 @@ export default defineConfig({
         port: 3000,
         proxy: {
             '/api': {
-                target: 'https://api-val.nicolasdross.fr',
+                target: 'https://nicolas-pianiste-api-619867312973.europe-west9.run.app',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, '')
             }

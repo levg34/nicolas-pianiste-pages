@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:match*",
-      "destination": "https://api-val.nicolasdross.fr/:match*"
+      "destination": "https://nicolas-pianiste-api-619867312973.europe-west9.run.app/:match*"
     },
     { "source": "/(.*)", "destination": "/" }
   ]
