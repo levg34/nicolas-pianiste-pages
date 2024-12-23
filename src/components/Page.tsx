@@ -1,7 +1,7 @@
 import { Component, For, Show, createResource } from 'solid-js'
 import { Breadcrumb, Carousel, Col, Container, Row, Spinner, Stack } from 'solid-bootstrap'
 import Element from './elements/Element'
-import { prepareForDisplay } from './utils'
+import { prepareForDisplay } from '../utils/utils'
 import { useParams } from '@solidjs/router'
 
 type Props = {}

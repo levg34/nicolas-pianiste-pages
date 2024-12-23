@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { prepareForDisplay } from '../src/utils'
+import { prepareForDisplay } from './utils'
 
 describe('test prepareForDisplay function', () => {
     it('should prepare correctly for pair number', () => {
