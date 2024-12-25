@@ -1,7 +1,7 @@
 import { Component, For, Show, createResource } from 'solid-js'
 import { Breadcrumb, Carousel, Col, Container, Row, Spinner, Stack } from 'solid-bootstrap'
 import Element from './elements/Element'
-import { prepareForDisplay } from '../utils/utils'
+import { getImageUrl, prepareForDisplay } from '../utils/utils'
 import { useParams } from '@solidjs/router'
 
 type Props = {}
@@ -55,7 +55,11 @@ const Page: Component<Props> = (props: Props) => {
                         class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
                         style={{ height: document.body.clientWidth * (2 / 9) + '' }}
                     >
-                        <img src={pageData()?.headerImageUrl} height="100%" width="100%" />
+                        <img
+                            src={pageData()?.headerImageUrl ? getImageUrl(pageData()?.headerImageUrl as string) : ''}
+                            height="100%"
+                            width="100%"
+                        />
                     </div>
                 </Carousel.Item>
             </Carousel>

@@ -1,5 +1,6 @@
 import { Button, Card, Col, Container, Row } from 'solid-bootstrap'
 import { For, createResource } from 'solid-js'
+import { getImageUrl } from '~/utils/utils'
 
 const pagesFetcher = async () => await fetch('/api/pages?full=true').then((res) => res.json())
 
@@ -38,7 +39,7 @@ export default function PageList() {
                     {(page) => (
                         <Col>
                             <Card>
-                                <Card.Img variant="top" src={page.pageData.headerImageUrl} />
+                                <Card.Img variant="top" src={getImageUrl(page.pageData.headerImageUrl)} />
                                 <Card.Body>
                                     <Card.Title>{page.name}</Card.Title>
                                     <Card.Text>{page.pageData.data.find((d) => d.markdown)?.markdown}</Card.Text>
