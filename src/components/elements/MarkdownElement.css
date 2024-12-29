@@ -1,3 +1,8 @@
+.markdown-content p {
+    margin-bottom: 1px;
+    margin-top: 5px;
+}
+
 .markdown-content img {
     max-width: 100%;
     height: auto;
