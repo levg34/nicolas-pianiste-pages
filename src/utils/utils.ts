@@ -1,3 +1,5 @@
+import { HOME_URL } from './constants-client'
+
 export const prepareForDisplay = (input: any[]): [any, any][] => {
     const output: [any, any][] = []
     for (let i = 0; i < input.length; i += 2) {
@@ -9,5 +11,5 @@ export const prepareForDisplay = (input: any[]): [any, any][] => {
 
 export const getImageUrl = (path: string): string => {
     const url = new URL(path, 'https://placeholder.com')
-    return `/api${url.pathname}`
+    return `${HOME_URL}${url.pathname}`
 }

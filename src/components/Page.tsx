@@ -3,6 +3,7 @@ import { Breadcrumb, Carousel, Col, Container, Row, Spinner, Stack } from 'solid
 import Element from './elements/Element'
 import { getImageUrl, prepareForDisplay } from '../utils/utils'
 import { useParams } from '@solidjs/router'
+import { HOME_URL } from '~/utils/constants-client'
 
 type Props = {}
 
@@ -44,8 +45,6 @@ const Page: Component<Props> = (props: Props) => {
         var b = parseInt(color.substring(4, 6), 16) // Blue
         return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? '#000000' : '#FFFFFF'
     }
-
-    const HOME_URL = import.meta.env.VITE_HOME_URL ?? '/'
 
     return (
         <Stack style="background-color: black">

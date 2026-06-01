@@ -1,7 +1,8 @@
 import { APIEvent } from '@solidjs/start/server'
+import { BACKEND_URL } from '~/utils/constants-server'
 
 export const GET = async (event: APIEvent) => {
-    const proxyUrl = new URL(process.env.BACKEND_URL + '/pages?full=true')
+    const proxyUrl = new URL(BACKEND_URL + '/pages?full=true')
 
     try {
         const response = await fetch(proxyUrl)
