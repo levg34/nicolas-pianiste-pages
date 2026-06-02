@@ -1,4 +1,4 @@
-import { Component, For, Show, Suspense, createSignal, onMount } from 'solid-js'
+import { Component, For, Show, Suspense } from 'solid-js'
 import { Breadcrumb, Carousel, Col, Container, Row, Spinner, Stack } from 'solid-bootstrap'
 import Element from './elements/Element'
 import { getImageUrl, prepareForDisplay } from '../utils/utils'
