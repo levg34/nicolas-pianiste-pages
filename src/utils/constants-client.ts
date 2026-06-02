@@ -5,4 +5,6 @@ if (HOME_URL.endsWith('/')) {
     HOME_URL = HOME_URL.slice(0, -1)
 }
 
-export { HOME_URL }
+const BASE_URL = '/pages'
+
+export { HOME_URL, BASE_URL }
