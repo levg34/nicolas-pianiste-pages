@@ -1,5 +1,5 @@
 {
-  "name": "example-with-vitest",
+  "name": "nicolas-pianiste-pages",
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
