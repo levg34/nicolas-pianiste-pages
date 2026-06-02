@@ -1,6 +1,4 @@
-import { clientOnly } from '@solidjs/start'
-// import Page from '~/components/Page'
-const Page = clientOnly(() => import('../components/Page'))
+import Page from '~/components/Page'
 
 const PageRoute = () => {
     return <Page />

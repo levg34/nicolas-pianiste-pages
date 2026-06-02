@@ -1,0 +1,6 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["app.config.ts", "src/app.tsx", "src/entry-client.tsx", "src/entry-server.tsx", "src/routes/**/*.{ts,tsx}"],
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignoreDependencies": ["solid-start"]
+}
