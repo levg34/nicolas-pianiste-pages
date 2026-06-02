@@ -11,5 +11,5 @@ export const prepareForDisplay = (input: any[]): [any, any][] => {
 
 export const getImageUrl = (path: string): string => {
     const url = new URL(path, 'https://placeholder.com')
-    return `${HOME_URL}${url.pathname}`
+    return `${HOME_URL !== '/' ? HOME_URL : ''}${url.pathname}`
 }
