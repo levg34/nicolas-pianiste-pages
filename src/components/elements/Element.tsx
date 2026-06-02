@@ -4,19 +4,14 @@ import ImageElement from './ImageElement'
 import VideoElement from './VideoElement'
 import MarkdownElement from './MarkdownElement'
 
-export enum ElementType {
-    TEXT,
-    IMAGE,
-    VIDEO,
-    MARKDOWN
-}
+type ElementType = 'text' | 'image' | 'video' | 'markdown'
 
 type VideoType = {
     url: string
     thumbUrl: string
 }
 
-type ElementInterface = Record<'text' | 'image' | 'video' | 'markdown', string[] | string | VideoType>
+type ElementInterface = Record<ElementType, string[] | string | VideoType>
 
 type Props = {
     element: ElementInterface

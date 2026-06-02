@@ -4,7 +4,7 @@ import { For, Suspense } from 'solid-js'
 import { BACKEND_URL } from '~/utils/constants-server'
 import { getImageUrl } from '~/utils/utils'
 
-export interface PageResponse {
+interface PageResponse {
     name: string
     url: string
     pageData: PageData
@@ -12,19 +12,19 @@ export interface PageResponse {
     bgColor?: string
 }
 
-export interface PageData {
+interface PageData {
     headerImageUrl: string
     data: Datum[]
 }
 
-export interface Datum {
+interface Datum {
     markdown?: string
     legacy_text?: string[]
     image?: string
     video?: Video
 }
 
-export interface Video {
+interface Video {
     url: string
     thumbUrl: string
 }

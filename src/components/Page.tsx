@@ -8,20 +8,20 @@ import { HOME_URL } from '~/utils/constants-client'
 
 type Props = {}
 
-export interface PageData {
+interface PageData {
     headerImageUrl: string
     pageName: string
     data: Datum[]
     bgColor?: string
 }
 
-export interface Datum {
+interface Datum {
     text?: string[]
     image?: string
     video?: Video
 }
 
-export interface Video {
+interface Video {
     url: string
     thumbUrl: string
 }
