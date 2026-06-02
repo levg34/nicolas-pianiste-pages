@@ -49,12 +49,6 @@ const Page: Component<Props> = (props: Props) => {
 
     const pageData = createAsync(() => fetchPageData(params.pageId!))
 
-    const [carouselHeight, setCarouselHeight] = createSignal('200px')
-
-    onMount(() => {
-        setCarouselHeight(document.body.clientWidth * (2 / 9) + 'px')
-    })
-
     function getFontColor() {
         const bgColor = pageData()?.bgColor
         if (!bgColor) return '#000000'
@@ -76,16 +70,12 @@ const Page: Component<Props> = (props: Props) => {
             >
                 <Carousel controls={false} indicators={false}>
                     <Carousel.Item>
-                        <div
-                            class="d-block w-100 bg-secondary d-flex justify-content-center align-items-center"
-                            style={{ height: carouselHeight() }}
-                        >
+                        <div class="d-block w-100 bg-secondary">
                             <img
                                 src={
                                     pageData()?.headerImageUrl ? getImageUrl(pageData()?.headerImageUrl as string) : ''
                                 }
-                                height="100%"
-                                width="100%"
+                                style={{ width: '100%', height: 'auto', display: 'block' }}
                             />
                         </div>
                     </Carousel.Item>
