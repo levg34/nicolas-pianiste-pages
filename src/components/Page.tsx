@@ -2,7 +2,7 @@ import { Component, For, Show, Suspense } from 'solid-js'
 import { Breadcrumb, Carousel, Col, Container, Row, Spinner, Stack } from 'solid-bootstrap'
 import Element from './elements/Element'
 import { getImageUrl, prepareForDisplay } from '../utils/utils'
-import { useParams, createAsync, query, type RouteDefinition } from '@solidjs/router'
+import { useParams, createAsync, query } from '@solidjs/router'
 import { BACKEND_URL } from '~/utils/constants-server'
 import { HOME_URL } from '~/utils/constants-client'
 
@@ -39,10 +39,6 @@ const fetchPageData = query(async (pageId: string) => {
 
     return response.json() as Promise<PageData>
 }, 'pageDetails')
-
-export const route = {
-    preload: ({ params }) => fetchPageData(params.pageId!)
-} satisfies RouteDefinition
 
 const Page: Component<Props> = (props: Props) => {
     const params = useParams()

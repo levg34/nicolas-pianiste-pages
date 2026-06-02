@@ -1,4 +1,4 @@
-import { A, createAsync, query, type RouteDefinition } from '@solidjs/router'
+import { A, createAsync, query } from '@solidjs/router'
 import { Button, Card, Col, Container, Row } from 'solid-bootstrap'
 import { For, Suspense } from 'solid-js'
 import { BACKEND_URL } from '~/utils/constants-server'
@@ -41,10 +41,6 @@ const getPages = query(async () => {
 
     return response.json() as Promise<PageResponse[]>
 }, 'pagesList')
-
-export const route = {
-    preload: () => getPages()
-} satisfies RouteDefinition
 
 export default function PageList() {
     const pages = createAsync(() => getPages())
